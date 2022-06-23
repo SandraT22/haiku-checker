@@ -15,23 +15,38 @@ Haiku.prototype.lineVerify = function (){
   }
 };
 
-Haiku.prototype.checkVowels = function (){
+Haiku.prototype.checkSyllables = function (){
   const poemArray = this.poem.split(/\r\n|\r|\n/);
   let lineOneArray = [];
   lineOneArray.push(poemArray[0]);
-  
-  let lineOne = lineOneArray.toString();
-  let lineOneWordsArray = lineOne.split(" ");
+  let lineOne = lineOneArray.toString().toLowerCase;
 
-  const vowelArray = ['a', 'e', 'i', 'o', 'u', 'y'];
+  function new_count(lineOne) {
    
-  let vowelCount = 0;
-  vowelArray.forEach(function (vowel) {
-    lineOneWordsArray.forEach(function (word) {
-      if (word.includes(vowel)) {
-        vowelCount ++;
-      }
-   });
-  });
-  return vowelCount
+    if(word.length <= 3) { return 1; }
+      word = word.replace(/(?:[^laeiouy]es|ed|[^laeiouy]e)$/, '');
+      word = word.replace(/^y/, '');
+      return word.match(/[aeiouy]{1,2}/g).length;
+  }
 };
+
+// Haiku.prototype.checkVowels = function (){
+//   const poemArray = this.poem.split(/\r\n|\r|\n/);
+//   let lineOneArray = [];
+//   lineOneArray.push(poemArray[0]);
+  
+//   let lineOne = lineOneArray.toString();
+//   let lineOneWordsArray = lineOne.split(" ");
+
+//   const vowelArray = ['a', 'e', 'i', 'o', 'u', 'y'];
+   
+//   let vowelCount = 0;
+//   vowelArray.forEach(function (vowel) {
+//     lineOneWordsArray.forEach(function (word) {
+//       if (word.includes(vowel)) {
+//         vowelCount ++;
+//       }
+//    });
+//   });
+//   return vowelCount
+// };
