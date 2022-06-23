@@ -13,4 +13,8 @@ describe("Haiku", () => {
   test("should check to verify that poem has 3 lines", () => {
     expect(poem1.lineVerify()).toEqual(true);    
   });
+
+  test("should check to verify how many vowels are in first line", () => {
+    expect(poem1.checkVowels()).toEqual(7);    
+  });
 });
