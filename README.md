@@ -1,8 +1,8 @@
-# (Application Name)
+# Haiku Checker
 
 #### (Brief Description of Application)
 
-#### By Sandra Tena
+#### By Sandra Tena & Jonathan Lu
 
 ## Technologies Used
 
